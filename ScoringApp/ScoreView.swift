@@ -13,7 +13,7 @@ struct ScoreView: View {
     @State var teamTwo = ""
     var body: some View {
         
-        ZStack{
+       
             VStack{
                 //title of the view
                         HStack{
@@ -47,7 +47,8 @@ struct ScoreView: View {
                 }
                 Spacer()
             }
-            .border(.red)
+          
+        
             VStack{
                 Spacer()
                 HStack {
@@ -61,7 +62,7 @@ struct ScoreView: View {
                             .font(.custom("Avenir Next", size: 40))
                         
                             .textFieldStyle(.roundedBorder)
-                            .frame(width: 120)
+                            .frame(width: 150)
                         
                     }
                     .padding()
@@ -73,7 +74,7 @@ struct ScoreView: View {
                             .font(.custom("Avenir Next", size: 40))
                         
                             .textFieldStyle(.roundedBorder)
-                            .frame(width: 120)
+                            .frame(width: 150)
                         
                     }
                     
@@ -88,19 +89,21 @@ struct ScoreView: View {
                             .background(Color.red)
                             .cornerRadius(10)
                     }
+                    .padding(.leading, 200)
                     Spacer()
                     
                 }
                 
                 .padding()
                 .background {
-                    RoundedRectangle(cornerRadius: 20) // Create the shape
+                    RoundedRectangle(cornerRadius: 10) // Create the shape
                         .fill(Color.black.opacity(0.7))
                 }
             }
-            .border(.blue)
+            .ignoresSafeArea()
+         
             
-        }
+        
     }
 }
 
