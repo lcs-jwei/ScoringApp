@@ -12,8 +12,10 @@ struct ScoreView: View {
     @State var teamOne = ""
     @State var teamTwo = ""
     var body: some View {
+        
         ZStack{
             VStack{
+                //title of the view
                         HStack{
                             Text("SCORE")
                                 .padding()
@@ -21,6 +23,7 @@ struct ScoreView: View {
                             Spacer()
                         }
                     VStack {
+                        //versus display of names of team 1 and team 2
                         HStack{
                             Text("\(teamOne)")
                                 .font(.custom("Avenir Next", size: 60))
@@ -44,35 +47,58 @@ struct ScoreView: View {
                 }
                 Spacer()
             }
-            
-            VStack {
+            .border(.red)
+            VStack{
                 Spacer()
-                HStack{
-                    Text("Team 1:")
-                        .font(.custom("Avenir Next", size: 40))
-                    
-                    TextField("name", text: $teamOne)
-                        .font(.custom("Avenir Next", size: 40))
-                    
-                        .textFieldStyle(.roundedBorder)
-                        .frame(width: 120)
+                HStack {
                     Spacer()
-                }
-                .padding()
-                HStack{
-                    Text("Team 2:")
-                        .font(.custom("Avenir Next", size: 40))
+                    //input names of team 1 and team two
+                    HStack{
+                        Text("Team 1:")
+                            .font(.custom("Avenir Next", size: 40))
+                        
+                        TextField("name", text: $teamOne)
+                            .font(.custom("Avenir Next", size: 40))
+                        
+                            .textFieldStyle(.roundedBorder)
+                            .frame(width: 120)
+                        
+                    }
+                    .padding()
+                    HStack{
+                        Text("Team 2:")
+                            .font(.custom("Avenir Next", size: 40))
+                        
+                        TextField("name", text: $teamTwo)
+                            .font(.custom("Avenir Next", size: 40))
+                        
+                            .textFieldStyle(.roundedBorder)
+                            .frame(width: 120)
+                        
+                    }
                     
-                    TextField("name", text: $teamTwo)
-                        .font(.custom("Avenir Next", size: 40))
-                    
-                        .textFieldStyle(.roundedBorder)
-                        .frame(width: 120)
+                    .padding()
+                    Button(action: {
+                        //put code to reset score and names and to add it to the list of history
+                    }) {
+                        Text("Game Over")
+                            .font(.custom("Avenir Next", size: 40))
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.red)
+                            .cornerRadius(10)
+                    }
                     Spacer()
+                    
                 }
-                .padding()
                 
+                .padding()
+                .background {
+                    RoundedRectangle(cornerRadius: 20) // Create the shape
+                        .fill(Color.black.opacity(0.7))
+                }
             }
+            .border(.blue)
             
         }
     }
