@@ -8,8 +8,44 @@
 import SwiftUI
 
 struct ScoreView: View {
+    //MARK: Stored Properties
+    @State var teamOne = ""
+    @State var teamTwo = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            VStack{
+                Text("SCORE")
+                    .font(.custom("Avenir Next", size: 70))
+                Spacer()
+            }
+            VStack {
+                HStack{
+                    Text("Team 1:")
+                        .font(.custom("Avenir Next", size: 40))
+                    
+                    TextField("name", text: $teamOne)
+                        .font(.custom("Avenir Next", size: 40))
+                    
+                        .textFieldStyle(.roundedBorder)
+                        .frame(width: 120)
+                    Spacer()
+                }
+                .padding()
+                HStack{
+                    Text("Team 2:")
+                        .font(.custom("Avenir Next", size: 40))
+                    
+                    TextField("name", text: $teamTwo)
+                        .font(.custom("Avenir Next", size: 40))
+                    
+                        .textFieldStyle(.roundedBorder)
+                        .frame(width: 120)
+                    Spacer()
+                }
+                .padding()
+                Spacer()
+            }
+        }
     }
 }
 
