@@ -11,17 +11,26 @@ struct ScoreView: View {
     //MARK: Stored Properties
     @State var teamOne = ""
     @State var teamTwo = ""
+    @State var pointsOne = 0
+    @State var pointsTwo = 0
     var body: some View {
-        
-       
             VStack{
                 //title of the view
-                        HStack{
-                            Text("SCORE")
-                                .padding()
-                                .font(.custom("Avenir Next", size: 70))
-                            Spacer()
-                        }
+                ZStack{
+                    HStack{
+                        Text("SCORE")
+                            .padding()
+                            .font(.custom("Avenir Next", size: 70))
+                        
+                        
+                        Spacer()
+                    }
+                    Text("\(pointsOne) - \(pointsTwo)")
+                        .font(.custom("Avenir Next", size: 90))
+                        .foregroundColor(.black)
+                        .padding()
+                        .border(Color.black)
+                }
                     VStack {
                         //versus display of names of team 1 and team 2
                         HStack{
@@ -46,11 +55,12 @@ struct ScoreView: View {
                             
                         }
                         HStack{
+                            //buttons to add score
                             Button(action: {
-                                
+                                pointsOne+=1
                             }) {
                                 Text("point")
-                                    .font(.custom("AvenirNext-Regular", size: 40))
+                                    .font(.custom("Avenir Next", size: 40))
                                     .foregroundColor(.white)
                                     .padding()
                                     .background(Color.green)
@@ -62,10 +72,10 @@ struct ScoreView: View {
                             }
                             .padding(.trailing, 200)
                             Button(action: {
-                                
+                                pointsTwo+=1
                             }) {
                                 Text("point")
-                                    .font(.custom("AvenirNext-Regular", size: 40))
+                                    .font(.custom("Avenir Next", size: 40))
                                     .foregroundColor(.white)
                                     .padding()
                                     .background(Color.green)
@@ -114,6 +124,10 @@ struct ScoreView: View {
                     .padding()
                     Button(action: {
                         //put code to reset score and names and to add it to the list of history
+                        pointsOne = 0
+                        pointsTwo = 0
+                        teamOne = ""
+                        teamTwo = ""
                     }) {
                         Text("Game Over")
                             .font(.custom("Avenir Next", size: 40))
