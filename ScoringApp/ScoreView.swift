@@ -25,13 +25,16 @@ struct ScoreView: View {
                     VStack {
                         //versus display of names of team 1 and team 2
                         HStack{
-                            Text("\(teamOne)")
-                                .font(.custom("Avenir Next", size: 60))
-                                .padding()
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black, lineWidth: 2)
-                                )
+                           
+                                Text("\(teamOne)")
+                                    .font(.custom("Avenir Next", size: 60))
+                                    .padding()
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.black, lineWidth: 2)
+                                    )
+                                
+                            
                             Image("VS")
                             Text("\(teamTwo)")
                                 .font(.custom("Avenir Next", size: 60))
@@ -42,7 +45,37 @@ struct ScoreView: View {
                                 )
                             
                         }
-                        
+                        HStack{
+                            Button(action: {
+                                
+                            }) {
+                                Text("point")
+                                    .font(.custom("AvenirNext-Regular", size: 40))
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.green)
+                                    .cornerRadius(10)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.white, lineWidth: 2)
+                                    )
+                            }
+                            .padding(.trailing, 200)
+                            Button(action: {
+                                
+                            }) {
+                                Text("point")
+                                    .font(.custom("AvenirNext-Regular", size: 40))
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.green)
+                                    .cornerRadius(10)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.white, lineWidth: 2)
+                                    )
+                            }
+                        }
                     Spacer()
                 }
                 Spacer()
