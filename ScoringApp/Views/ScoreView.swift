@@ -19,14 +19,6 @@ struct ScoreView: View {
             VStack{
                     //title of the view
                     ZStack{
-                        HStack{
-                            Text("SCORE")
-                                .padding()
-                                .font(.custom("Avenir Next", size: 70))
-                            
-                            
-                            Spacer()
-                        }
                         Text("\(pointsOne) - \(pointsTwo)")
                             .font(.custom("Avenir Next", size: 90))
                             .foregroundColor(.black)
@@ -72,7 +64,7 @@ struct ScoreView: View {
                                                 .stroke(Color.white, lineWidth: 2)
                                         )
                                 }
-                                .padding(.trailing, 200)
+                                .padding(.trailing, 100)
                                 Button(action: {
                                     pointsTwo+=1
                                 }) {
@@ -93,21 +85,32 @@ struct ScoreView: View {
                     Spacer()
             }
             //HistoryView
+            .padding(.trailing, 200)
             VStack{
+                
+                Text("HISTORY")
+                    .font(.custom("Avenir Next", size: 40))
                 
                 List(historyResult,id:\.id) { history in
                     
                     VStack{
-                        Text("Name one: \(history.nameOne)")
-                        Text("Name two: \(history.nameTwo)")
-                        Text("Score one \(history.scoreOne)")
-                        Text("Score two \(history.scoreTwo)")
+                        Text("Teams - \(history.nameOne) vs. \(history.nameTwo)")
+                            .font(.custom("Avenir Next", size: 30))
+                        Text("Score:  \(history.scoreOne) - \(history.scoreTwo)")
+                            .font(.custom("Avenir Next", size: 20))
                         Text(Date.now, style: .date)
+                            .font(.custom("Avenir Next", size: 20))
                         
                     }
+                    .frame(width:300)
+                    
                     
                 }
+                .frame(width:400, height:500)
+                .padding()
+                
             }
+            
         }
           
         
