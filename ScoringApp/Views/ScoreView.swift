@@ -102,6 +102,7 @@ struct ScoreView: View {
                         Text("Name two: \(history.nameTwo)")
                         Text("Score one \(history.scoreOne)")
                         Text("Score two \(history.scoreTwo)")
+                        Text(Date.now, style: .date)
                         
                     }
                     
