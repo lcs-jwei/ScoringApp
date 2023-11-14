@@ -124,6 +124,8 @@ struct ScoreView: View {
                     .padding()
                     Button(action: {
                         //put code to reset score and names and to add it to the list of history
+                        let model = History(nameOne: teamOne, nameTwo: teamTwo, scoreOne: pointsOne, scoreTwo: pointsTwo)
+                        
                         pointsOne = 0
                         pointsTwo = 0
                         teamOne = ""
