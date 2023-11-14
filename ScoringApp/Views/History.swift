@@ -12,6 +12,8 @@ struct History {
     var nameTwo: String
     var scoreOne: Int
     var scoreTwo: Int
+    var id:UUID = UUID()
+
 }
 
 class HistoryList{
