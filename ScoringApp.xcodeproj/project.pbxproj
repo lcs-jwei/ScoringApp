@@ -40,7 +40,6 @@
 			isa = PBXGroup;
 			children = (
 				DFF7C4A42AF43258000B6F7C /* ScoreView.swift */,
-				DF34BB182B03352800756BE0 /* Models */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -82,6 +81,7 @@
 			children = (
 				DF4566C32B059EFE0025B72D /* Helpers */,
 				DFF7C4962AF430A9000B6F7C /* ScoringApp.swift */,
+				DF34BB182B03352800756BE0 /* Models */,
 				DF34BB132B029CB300756BE0 /* Views */,
 				DFF7C49A2AF430AB000B6F7C /* Assets.xcassets */,
 				DFF7C49C2AF430AB000B6F7C /* Preview Content */,
