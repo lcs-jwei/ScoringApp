@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct History {
+struct History: Identifiable {
     var nameOne: String
     var nameTwo: String
     var scoreOne: Int

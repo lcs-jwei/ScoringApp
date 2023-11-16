@@ -14,85 +14,85 @@ struct ScoreView: View {
     @State var pointsOne = 0
     @State var pointsTwo = 0
     @State var historyResult: [History] = []
+    @State var searchText = ""
     var body: some View {
         HStack {
             VStack{
-                    //title of the view
-                    ZStack{
-                        Text("\(pointsOne) - \(pointsTwo)")
-                            .font(.custom("Avenir Next", size: 90))
-                            .foregroundColor(.black)
+              
+                ZStack{
+                    Text("\(pointsOne) - \(pointsTwo)")
+                        .font(.custom("Avenir Next", size: 90))
+                        .foregroundColor(.black)
+                        .padding()
+                        .border(Color.black)
+                }
+                VStack {
+                  
+                    HStack{
+                        
+                        Text("\(teamOne)")
+                            .font(.custom("Avenir Next", size: 60))
                             .padding()
-                            .border(Color.black)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.black, lineWidth: 2)
+                            )
+                        
+                        
+                        Image("VS")
+                        Text("\(teamTwo)")
+                            .font(.custom("Avenir Next", size: 60))
+                            .padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.black, lineWidth: 2)
+                            )
+                        
                     }
-                        VStack {
-                            //versus display of names of team 1 and team 2
-                            HStack{
-                               
-                                    Text("\(teamOne)")
-                                        .font(.custom("Avenir Next", size: 60))
-                                        .padding()
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(Color.black, lineWidth: 2)
-                                        )
-                                    
-                                
-                                Image("VS")
-                                Text("\(teamTwo)")
-                                    .font(.custom("Avenir Next", size: 60))
-                                    .padding()
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.black, lineWidth: 2)
-                                    )
-                                
-                            }
-                            HStack{
-                                //buttons to add score
-                                Button(action: {
-                                    pointsOne+=1
-                                }) {
-                                    Text("point")
-                                        .font(.custom("Avenir Next", size: 40))
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .background(Color.green)
-                                        .cornerRadius(10)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(Color.white, lineWidth: 2)
-                                        )
-                                }
-                                .padding(.trailing, 100)
-                                Button(action: {
-                                    pointsTwo+=1
-                                }) {
-                                    Text("point")
-                                        .font(.custom("Avenir Next", size: 40))
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .background(Color.green)
-                                        .cornerRadius(10)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(Color.white, lineWidth: 2)
-                                        )
-                                }
-                            }
-                        Spacer()
+                    HStack{
+
+                        Button(action: {
+                            pointsOne+=1
+                        }) {
+                            Text("point")
+                                .font(.custom("Avenir Next", size: 40))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.green)
+                                .cornerRadius(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.white, lineWidth: 2)
+                                )
+                        }
+                        .padding(.trailing, 100)
+                        Button(action: {
+                            pointsTwo+=1
+                        }) {
+                            Text("point")
+                                .font(.custom("Avenir Next", size: 40))
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.green)
+                                .cornerRadius(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.white, lineWidth: 2)
+                                )
+                        }
                     }
                     Spacer()
+                }
+                Spacer()
             }
-            //HistoryView
             .padding(.trailing, 200)
             VStack{
-                
                 Text("HISTORY")
                     .font(.custom("Avenir Next", size: 40))
-                
-                List(historyResult,id:\.id) { history in
-                    
+                TextField("Search", text: $searchText)
+                    .textFieldStyle(.roundedBorder)
+                    .frame(width:300)
+                List(filtering(originalHistory: historyResult, on: searchText)) { history in
                     VStack{
                         Text("Teams - \(history.nameOne) vs. \(history.nameTwo)")
                             .font(.custom("Avenir Next", size: 30))
@@ -100,25 +100,18 @@ struct ScoreView: View {
                             .font(.custom("Avenir Next", size: 20))
                         Text(Date.now, style: .date)
                             .font(.custom("Avenir Next", size: 20))
-                        
                     }
                     .frame(width:300)
-                    
-                    
                 }
                 .frame(width:400, height:500)
                 .padding()
-                
             }
-            
         }
-          
-        
             VStack{
                 Spacer()
+                
                 HStack {
                     Spacer()
-                    //input names of team 1 and team two
                     HStack{
                         Text("Team 1:")
                             .font(.custom("Avenir Next", size: 40))
@@ -146,7 +139,7 @@ struct ScoreView: View {
                     .padding()
                     Button(action: {
                         
-                        //put code to reset score and names and to add it to the list of history
+                       
                         let model = History(nameOne: teamOne, nameTwo: teamTwo, scoreOne: pointsOne, scoreTwo: pointsTwo)
                         addHistory(history: model)
                         pointsOne = 0
@@ -162,15 +155,16 @@ struct ScoreView: View {
                             .cornerRadius(10)
                     }
                     .padding(.leading, 200)
-                    Spacer()
+                   
                     
                 }
                 
                 .padding()
                 .background {
-                    RoundedRectangle(cornerRadius: 10) // Create the shape
+                    RoundedRectangle(cornerRadius: 10) 
                         .fill(Color.black.opacity(0.7))
-                }
+                        
+                }.padding()
             }
             .ignoresSafeArea()
          

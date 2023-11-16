@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF34BB172B029D9C00756BE0 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF34BB162B029D9C00756BE0 /* History.swift */; };
+		DF4566C52B059F110025B72D /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4566C42B059F100025B72D /* Function.swift */; };
 		DFF7C4972AF430A9000B6F7C /* ScoringApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7C4962AF430A9000B6F7C /* ScoringApp.swift */; };
 		DFF7C49B2AF430AB000B6F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFF7C49A2AF430AB000B6F7C /* Assets.xcassets */; };
 		DFF7C49E2AF430AB000B6F7C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFF7C49D2AF430AB000B6F7C /* Preview Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		DF34BB162B029D9C00756BE0 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		DF4566C42B059F100025B72D /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		DFF7C4932AF430A9000B6F7C /* ScoringApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoringApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFF7C4962AF430A9000B6F7C /* ScoringApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringApp.swift; sourceTree = "<group>"; };
 		DFF7C49A2AF430AB000B6F7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,9 +40,25 @@
 			isa = PBXGroup;
 			children = (
 				DFF7C4A42AF43258000B6F7C /* ScoreView.swift */,
-				DF34BB162B029D9C00756BE0 /* History.swift */,
+				DF34BB182B03352800756BE0 /* Models */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DF34BB182B03352800756BE0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DF34BB162B029D9C00756BE0 /* History.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DF4566C32B059EFE0025B72D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DF4566C42B059F100025B72D /* Function.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		DFF7C48A2AF430A9000B6F7C = {
@@ -62,6 +80,7 @@
 		DFF7C4952AF430A9000B6F7C /* ScoringApp */ = {
 			isa = PBXGroup;
 			children = (
+				DF4566C32B059EFE0025B72D /* Helpers */,
 				DFF7C4962AF430A9000B6F7C /* ScoringApp.swift */,
 				DF34BB132B029CB300756BE0 /* Views */,
 				DFF7C49A2AF430AB000B6F7C /* Assets.xcassets */,
@@ -151,6 +170,7 @@
 				DFF7C4972AF430A9000B6F7C /* ScoringApp.swift in Sources */,
 				DF34BB172B029D9C00756BE0 /* History.swift in Sources */,
 				DFF7C4A52AF43258000B6F7C /* ScoreView.swift in Sources */,
+				DF4566C52B059F110025B72D /* Function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
